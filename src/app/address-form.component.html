@@ -1,0 +1,70 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>In Value</h3>
+			<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+				<div formArrayName="addresses">
+					<div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="panel panel-default">
+						<div class="panel-heading">
+							<span>Group {{i + 1}}</span>
+							<span class="glyphicon glyphicon-remove pull-right" (click)="removeAddress(myForm,i)"></span>
+						</div>
+						<div class="panel-body" [formGroupName]="i">
+							<address [group]="myForm.controls.addresses.controls[i]"></address>
+							<div class="margin-20">
+								<button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="margin-20">
+					<a (click)="addAddress(myForm)" style="cursor: default">
+            Add +
+          </a>
+				</div>
+				<div class="margin-20">
+					<div>myForm details:-</div>
+					<pre>form value: 				
+						<br>{{myForm.value | json}}
+					</pre>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h3>Not In Value</h3>
+					<form [formGroup]="myForm2" novalidate (ngSubmit)="save(myForm2)">
+						<div formArrayName="addresses">
+							<div *ngFor="let address of myForm2.controls.addresses.controls; let i=index" class="panel panel-default">
+								<div class="panel-heading">
+									<span>Group {{i + 1}}</span>
+									<span class="glyphicon glyphicon-remove pull-right" (click)="removeAddress(myForm2,i)"></span>
+								</div>
+								<div class="panel-body" [formGroupName]="i">
+									<address [group]="myForm2.controls.addresses.controls[i]"></address>
+									<div class="margin-20">
+										<button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm2.valid">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="margin-20">
+							<a (click)="addAddress(myForm2)" style="cursor: default">
+            Add +
+          </a>
+						</div>
+						<div class="clearfix"></div>
+						<div class="margin-20">
+							<div>myForm2 details:-</div>
+							<pre>form value: 					
+								<br>{{myForm2.value | json}}
+								</pre>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>

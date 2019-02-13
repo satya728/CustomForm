@@ -1,0 +1,14 @@
+<div class="form-group">
+  <div class="input-group">
+    <!-- <input matInput type="number"
+           class="form-control"
+           placeholder="Enter Range"
+           [value]="value" 
+           (input)="pushChanges($event.target.value)"> -->
+    <mat-form-field>
+					<input matInput type="number" class="form-control" placeholder="End Range"
+          [value]="value" 
+           (input)="pushChanges($event.target.value)">
+		</mat-form-field>
+  </div>
+</div>
